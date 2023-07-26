@@ -22,7 +22,7 @@ const Home = () => {
     <>
       <InputSearch handleSearch={sendSearch} />
       <div className='container'>
-        <h1 className='mb-4'>Home</h1>
+        <h1 className='mb-4'>Series</h1>
         <div className='row row-cols-1 row-cols-md-3 g-4'>
           {series.map((seriesItem) => (
             <div className='col' key={seriesItem.show.id}>
