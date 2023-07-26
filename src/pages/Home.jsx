@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import InputSearch from '../components/InputSearch'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   const [series, setSeries] = useState([])
@@ -33,7 +34,11 @@ const Home = () => {
                   className='card-img-top'
                 />
                 <div className='card-body'>
-                  <h5 className='card-title'>{seriesItem.show.name}</h5>
+                  <Link
+                    className='card-title'
+                    to={`/MovieDetails/${seriesItem.show.id}`}
+                  >{seriesItem.show.name}
+                  </Link>
                   <p className='card-text'>{seriesItem.show.summary}</p>
                 </div>
               </div>
