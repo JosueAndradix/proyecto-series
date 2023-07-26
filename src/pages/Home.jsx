@@ -1,7 +1,15 @@
 import { useState, useEffect } from 'react'
+import InputSearch from '../components/InputSearch'
 
 const Home = () => {
   const [series, setSeries] = useState([])
+  const sendSearch = (search) => {
+    fetch(`https://api.tvmaze.com/search/shows?q=${search}`)
+      .then(res => res.json())
+      .then(data => setSeries(data))
+      .catch(error => console.error(error))
+  }
+
   useEffect(() => {
     fetch('https://api.tvmaze.com/search/shows?q=popular')
       .then(res => res.json())
@@ -12,6 +20,7 @@ const Home = () => {
 
   return (
     <>
+      <InputSearch handleSearch={sendSearch} />
       <div className='container'>
         <h1 className='mb-4'>Home</h1>
         <div className='row row-cols-1 row-cols-md-3 g-4'>
