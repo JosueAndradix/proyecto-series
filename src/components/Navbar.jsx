@@ -5,8 +5,9 @@ const Navbar = () => {
   return (
     <nav className='navbar navbar-expand-lg navbar-dark' style={{ backgroundColor: '#333' }}>
       <div className='container'>
-        <h1 className='navbar-brand' to='/'>
-          Series Perronas
+        <img src='src\img\corn.png' alt='Logo' width='40' height='50' />
+        <h1 className='navbar-brand'>
+          Series Info
         </h1>
         <button
           className='navbar-toggler'

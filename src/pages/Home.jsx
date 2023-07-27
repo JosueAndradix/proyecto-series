@@ -23,7 +23,8 @@ const Home = () => {
     <div className='bg-dark text-white min-vh-100 py-5'>
 
       <div className='container text-center'>
-        <h1 className='mb-4'>Series</h1>
+        <img src='src\img\ojos.png' alt='eyes' width='200' height='200' />
+
         <div className='d-flex justify-content-center'>
           <InputSearch handleSearch={sendSearch} />
         </div>
