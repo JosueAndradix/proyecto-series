@@ -20,14 +20,20 @@ const Home = () => {
   [])
 
   return (
-    <>
-      <InputSearch handleSearch={sendSearch} />
-      <div className='container'>
+    <div className='bg-dark text-white min-vh-100 py-5'>
+
+      <div className='container text-center'>
         <h1 className='mb-4'>Series</h1>
+        <div className='d-flex justify-content-center'>
+          <InputSearch handleSearch={sendSearch} />
+        </div>
+      </div>
+
+      <div className='container mt-5'>
         <div className='row row-cols-1 row-cols-md-3 g-4'>
           {series.map((seriesItem) => (
             <div className='col' key={seriesItem.show.id}>
-              <div className='card h-100'>
+              <div className='card h-100 bg-dark text-white' style={{ boxShadow: '0 0 10px rgba(255, 255, 255, 0.5)' }}>
                 <img
                   src={seriesItem.show.image?.medium || '/placeholder-image.png'}
                   alt={seriesItem.show.name}
@@ -35,20 +41,22 @@ const Home = () => {
                 />
                 <div className='card-body'>
                   <Link
-                    className='card-title'
+                    className='card-title text-white h5 mb-2'
                     to={`/MovieDetails/${seriesItem.show.id}`}
                   >{seriesItem.show.name}
                   </Link>
-                  <p className='card-text'>{seriesItem.show.summary}</p>
+                  <p
+                    className='card-text '
+                    style={{ marginTop: '20px', textAlign: 'justify' }}
+                    dangerouslySetInnerHTML={{ __html: seriesItem.show.summary }}
+                  />
                 </div>
               </div>
             </div>
           ))}
         </div>
       </div>
-
-    </>
-
+    </div>
   )
 }
 
